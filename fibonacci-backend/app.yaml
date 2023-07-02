@@ -1,0 +1,7 @@
+runtime: java17
+env: flex
+service: fibonacci-backend-service
+
+handlers:
+  - url: /.*
+    script: auto

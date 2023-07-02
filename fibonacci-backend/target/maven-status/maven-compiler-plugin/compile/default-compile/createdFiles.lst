@@ -1,0 +1,5 @@
+org/example/resources/FibonacciRequest.class
+org/example/trueConfiguration.class
+org/example/trueApplication.class
+org/example/resources/FibonacciResponse.class
+org/example/resources/FibonacciResource.class
