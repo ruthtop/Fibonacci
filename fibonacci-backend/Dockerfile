@@ -9,6 +9,6 @@ COPY config.yml /app/config.yml
 # Expose Port 8080
 EXPOSE 8080
 # Run Dropwizard application inside docker image
-CMD ["java", "-jar", "/app/oracle-backend.jar", "server", "config.yml", "--port=$PORT"]
+CMD ["java", "-jar", "/app/oracle-backend.jar", "server", "config.yml"]
 
 

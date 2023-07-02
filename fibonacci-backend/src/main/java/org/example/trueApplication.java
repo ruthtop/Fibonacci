@@ -28,10 +28,6 @@ public class trueApplication extends Application<trueConfiguration> {
 
     @Override
     public void run(final trueConfiguration configuration, final Environment environment) {
-        String port = System.getenv("PORT");
-        if (port == null || port.isEmpty()) {
-            port = "8080"; // Set a default port if $PORT environment variable is not set
-        }
         // Enable CORS support
         final FilterRegistration.Dynamic corsFilter = environment.servlets()
                 .addFilter("CORSFilter", CrossOriginFilter.class);
