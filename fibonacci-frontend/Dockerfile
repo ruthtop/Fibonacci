@@ -9,5 +9,5 @@ RUN npm run build
 # Expose port 3000
 EXPOSE 3000
 # Run application when container starts
-CMD npm start --port=$PORT
+CMD npm start
 
