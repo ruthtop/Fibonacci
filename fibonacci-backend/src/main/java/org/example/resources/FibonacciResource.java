@@ -21,13 +21,13 @@ public class FibonacciResource {
             throw new IllegalArgumentException("Invalid input. Please provide a number between 1 and 100.");
         }
 
-        List<BigInteger> fibonacciSequence = generateFibonacciSequence(elements);
-        List<BigInteger> sortedSequence = sortSequence(fibonacciSequence);
+        List<String> fibonacciSequence = generateFibonacciSequence(elements);
+        List<String> sortedSequence = sortSequence(fibonacciSequence);
 
         return new FibonacciResponse(fibonacciSequence, sortedSequence);
     }
 
-    private List<BigInteger> generateFibonacciSequence(int n) {
+    private List<String> generateFibonacciSequence(int n) {
         List<BigInteger> sequence = new ArrayList<>();
         if (n >= 1) {
             sequence.add(BigInteger.ZERO);
@@ -39,15 +39,23 @@ public class FibonacciResource {
             BigInteger next = sequence.get(i - 1).add(sequence.get(i - 2));
             sequence.add(next);
         }
-        return sequence;
+
+        // Convert BigInteger values to strings
+        List<String> stringSequence = new ArrayList<>();
+        for (BigInteger num : sequence) {
+            stringSequence.add(num.toString());
+        }
+
+        return stringSequence;
     }
 
-    private List<BigInteger> sortSequence(List<BigInteger> sequence) {
-        List<BigInteger> evenNumbers = new ArrayList<>();
-        List<BigInteger> oddNumbers = new ArrayList<>();
+    private List<String> sortSequence(List<String> sequence) {
+        List<String> evenNumbers = new ArrayList<>();
+        List<String> oddNumbers = new ArrayList<>();
 
-        for (BigInteger num : sequence) {
-            if (num.mod(BigInteger.TWO).equals(BigInteger.ZERO)) {
+        for (String num : sequence) {
+            BigInteger value = new BigInteger(num);
+            if (value.mod(BigInteger.TWO).equals(BigInteger.ZERO)) {
                 evenNumbers.add(num);
             } else {
                 oddNumbers.add(num);
@@ -57,7 +65,7 @@ public class FibonacciResource {
         Collections.sort(evenNumbers, Collections.reverseOrder());
         Collections.sort(oddNumbers, Collections.reverseOrder());
 
-        List<BigInteger> sortedSequence = new ArrayList<>();
+        List<String> sortedSequence = new ArrayList<>();
         sortedSequence.addAll(evenNumbers);
         sortedSequence.addAll(oddNumbers);
 

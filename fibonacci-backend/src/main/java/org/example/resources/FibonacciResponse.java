@@ -5,19 +5,19 @@ import java.util.List;
 
 
 public class FibonacciResponse {
-    private List<BigInteger> fibonacci;
-    private List<BigInteger> sorted;
+    private List<String> fibonacci;
+    private List<String> sorted;
 
-    public FibonacciResponse(List<BigInteger> fibonacci, List<BigInteger> sorted) {
+    public FibonacciResponse(List<String> fibonacci, List<String> sorted) {
         this.fibonacci = fibonacci;
         this.sorted = sorted;
     }
 
-    public List<BigInteger> getFibonacci() {
+    public List<String> getFibonacci() {
         return fibonacci;
     }
 
-    public List<BigInteger> getSorted() {
+    public List<String> getSorted() {
         return sorted;
     }
 
